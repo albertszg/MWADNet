@@ -224,7 +224,6 @@ class WADNet(nn.Module):
         thre = []
         if mode == 'DWT':
             thre = [impLay.WaveletThreshold(init=initHT, trainBias=trainHT, t=t, m=i-1,threshold=threshold)  for i in self.m]
-            # thre = [impLay.HardThresholdAssym(init=initHT, trainBias=trainHT, m=i-1) for i in self.m]
             self.thre = nn.ModuleList(thre)
             self.thre_a = impLay.WaveletThreshold(init=initHT, trainBias=trainHT, t=t, m=1,
                                                   threshold=threshold)  # DWT模式时最后一次分解后对低频进行处理的阈值模块
